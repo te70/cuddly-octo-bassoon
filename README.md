@@ -1,54 +1,38 @@
-# Career Architect — Hackathon Demo
+# Course Architect
 
-AI-powered career readiness platform for African universities.
+AI-powered course intelligence for educators. Upload your course content — get a precise report on what to keep, remove, and add to beat competitors and win more enrolments.
 
 ## Quick Start
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Set your API key
-cp .env.example .env
-# Edit .env and add your Anthropic API key
-
-# 3. Run
+cp .env.example .env   # add your Anthropic API key inside
 npm start
 ```
 
 Open http://localhost:3000
 
-## API Key
+## How it works
 
-Get one from https://console.anthropic.com/ — free tier is enough for the demo.
+1. **Paste your syllabus** — any format: module list, bullet points, full outline
+2. **AI analyses it** — compares against current job market demand
+3. **Get your report** — three clear action panels:
+   - ✓ **Keep** — what's working and why
+   - ✕ **Remove** — what's outdated or irrelevant
+   - **+ Add** — what employers are hiring for that you're missing
+   - ◎ **Market Summary** — strategic overview + alignment score
 
-## Three Roles
-
-| Role | Features |
-|------|---------|
-| **Student** | Socratic AI coach + Assignment → Portfolio generator |
-| **Lecturer** | Curriculum upload → Gap analysis + Lab recommendations + Case studies |
-| **Career Coach** | Student readiness scoring + Job match percentages + Portfolio readiness |
-
-## Architecture
+## Files
 
 ```
 src/
-  utils/claudeApi.js     ← All Claude API calls & system prompts
-  pages/StudentPage.js   ← Socratic coach + portfolio gen
-  pages/LecturerPage.js  ← Curriculum intelligence
-  pages/CareerCoachPage.js ← Readiness dashboard
-  App.js                 ← Landing + role routing
-  styles.css             ← Global dark theme
+  utils/claudeApi.js   ← Claude API + system prompt + parsers
+  App.js               ← All UI: input, loading, results
+  styles.css           ← Warm cream/forest aesthetic
 ```
 
-## Claude API Integration
+## Demo courses included
 
-All prompts live in `src/utils/claudeApi.js`:
-
-- `socratesChat()` — streaming multi-turn Socratic coach
-- `generatePortfolio()` — streaming portfolio generator
-- `analyseCurriculum()` — streaming curriculum gap analysis
-- `scoreStudent()` — JSON readiness scoring
-
-All streaming calls use SSE (`stream: true`) and update UI live as tokens arrive.
+- Cybersecurity Fundamentals
+- Data Analytics for Business
+- Digital Marketing Professional
